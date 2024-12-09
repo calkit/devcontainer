@@ -11,7 +11,8 @@
           "esbenp.pretter-vscode",
           "ms-python.vscode-pylance",
           "streetsidesoftware.code-spell-checker",
-          "redhat.vscode-yaml"
+          "redhat.vscode-yaml",
+          "akamud.vscode-theme-onedark"
         ],
         "settings": {
           "latex-workshop.latex.external.build.command": "calkit",
@@ -23,7 +24,9 @@
             "*.pdf": "latex-workshop-pdf-hook"
           },
           "git.autofetch": true,
-          "redhat.telemetry.enabled": true
+          "redhat.telemetry.enabled": true,
+          "window.menuBarVisibility": "classic",
+          "workbench.colorTheme": "Atom One Dark"
         }
       }
     }
