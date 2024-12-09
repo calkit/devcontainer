@@ -1,8 +1,7 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/python:dev-3.12-bullseye",
+    "image": "ghcr.io/calkit/devcontainer:v0.0.2",
     "features": {
-      "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-      "ghcr.io/devcontainers/features/node:1": {}
+      "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "customizations": {
       "vscode": {
@@ -15,7 +14,14 @@
         ],
         "settings": {
           "latex-workshop.latex.external.build.command": "calkit",
-          "latex-workshop.latex.external.build.args": ["run"]
+          "latex-workshop.latex.external.build.args": [
+            "run"
+          ],
+          "dvc.doNotShowSetupAfterInstall": true,
+          "workbench.editorAssociations": {
+            "*.pdf": "latex-workshop-pdf-hook"
+          },
+          "git.autofetch": true
         }
       }
     }
