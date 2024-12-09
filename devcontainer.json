@@ -1,0 +1,22 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/python:dev-3.12-bullseye",
+    "features": {
+      "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+      "ghcr.io/devcontainers/features/node:1": {}
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "james-yu.latex-workshop",
+          "iterative.dvc",
+          "esbenp.pretter-vscode",
+          "ms-python.vscode-pylance",
+          "streetsidesoftware.code-spell-checker"
+        ],
+        "settings": {
+          "latex-workshop.latex.external.build.command": "calkit",
+          "latex-workshop.latex.external.build.args": ["run"]
+        }
+      }
+    }
+  }
