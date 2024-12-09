@@ -38,6 +38,8 @@ RUN apt-get update > /dev/null && \
     echo ". ${CONDA_DIR}/etc/profile.d/conda.sh && conda activate base" >> /etc/skel/.bashrc && \
     echo ". ${CONDA_DIR}/etc/profile.d/conda.sh && conda activate base" >> ~/.bashrc
 
+RUN conda init bash
+
 # Install TeXlive?
 # RUN apt-get update -q && apt-get install --no-install-recommends --yes texlive-full
 
