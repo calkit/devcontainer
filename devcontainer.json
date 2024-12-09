@@ -26,7 +26,8 @@
           "git.autofetch": true,
           "redhat.telemetry.enabled": true,
           "window.menuBarVisibility": "classic",
-          "workbench.colorTheme": "Atom One Dark"
+          "workbench.colorTheme": "Atom One Dark",
+          "editor.minimap.enabled": false
         }
       }
     }
