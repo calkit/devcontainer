@@ -10,7 +10,8 @@
           "iterative.dvc",
           "esbenp.pretter-vscode",
           "ms-python.vscode-pylance",
-          "streetsidesoftware.code-spell-checker"
+          "streetsidesoftware.code-spell-checker",
+          "redhat.vscode-yaml"
         ],
         "settings": {
           "latex-workshop.latex.external.build.command": "calkit",
@@ -21,7 +22,8 @@
           "workbench.editorAssociations": {
             "*.pdf": "latex-workshop-pdf-hook"
           },
-          "git.autofetch": true
+          "git.autofetch": true,
+          "redhat.telemetry.enabled": true
         }
       }
     }
