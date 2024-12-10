@@ -25,7 +25,6 @@ RUN apt-get update > /dev/null && \
         wget bzip2 ca-certificates \
         git \
         tini \
-        texlive-full \
         > /dev/null && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
