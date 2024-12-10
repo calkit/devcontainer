@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/calkit/devcontainer:v0.0.4",
+  "image": "ghcr.io/calkit/devcontainer:v0.0.5",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
@@ -31,5 +31,6 @@
       }
     }
   },
-  "postCreateCommand": "docker pull texlive/texlive:latest-full"
+  "postCreateCommand": "conda init bash",
+  "postStartCommand": "docker pull texlive/texlive:latest-full"
 }
