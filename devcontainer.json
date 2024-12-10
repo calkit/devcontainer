@@ -30,5 +30,6 @@
         "editor.minimap.enabled": false
       }
     }
-  }
+  },
+  "postCreateCommand": "docker pull texlive/texlive:latest-full"
 }
