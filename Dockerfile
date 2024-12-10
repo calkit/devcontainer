@@ -25,6 +25,7 @@ RUN apt-get update > /dev/null && \
         wget bzip2 ca-certificates \
         git \
         tini \
+        texlive-full \
         > /dev/null && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
@@ -39,9 +40,6 @@ RUN apt-get update > /dev/null && \
     echo ". ${CONDA_DIR}/etc/profile.d/conda.sh && conda activate base" >> ~/.bashrc
 
 RUN conda init bash
-
-# Install TeXlive?
-# RUN apt-get update -q && apt-get install --no-install-recommends --yes texlive-full
 
 # Install Calkit
 RUN pip install calkit-python
