@@ -39,4 +39,4 @@ RUN apt-get update > /dev/null && \
     echo ". ${CONDA_DIR}/etc/profile.d/conda.sh && conda activate base" >> ~/.bashrc
 
 # Install Calkit
-RUN pip install calkit-python
+RUN pip install "calkit-python>=0.9.1"
