@@ -1,34 +1,34 @@
 {
-    "image": "ghcr.io/calkit/devcontainer:v0.0.2",
-    "features": {
-      "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-    },
-    "customizations": {
-      "vscode": {
-        "extensions": [
-          "james-yu.latex-workshop",
-          "iterative.dvc",
-          "esbenp.pretter-vscode",
-          "ms-python.vscode-pylance",
-          "streetsidesoftware.code-spell-checker",
-          "redhat.vscode-yaml",
-          "akamud.vscode-theme-onedark"
+  "image": "ghcr.io/calkit/devcontainer:v0.0.2",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "james-yu.latex-workshop",
+        "iterative.dvc",
+        "esbenp.pretter-vscode",
+        "ms-python.vscode-pylance",
+        "streetsidesoftware.code-spell-checker",
+        "redhat.vscode-yaml",
+        "akamud.vscode-theme-onedark"
+      ],
+      "settings": {
+        "latex-workshop.latex.external.build.command": "calkit",
+        "latex-workshop.latex.external.build.args": [
+          "run"
         ],
-        "settings": {
-          "latex-workshop.latex.external.build.command": "calkit",
-          "latex-workshop.latex.external.build.args": [
-            "run"
-          ],
-          "dvc.doNotShowSetupAfterInstall": true,
-          "workbench.editorAssociations": {
-            "*.pdf": "latex-workshop-pdf-hook"
-          },
-          "git.autofetch": true,
-          "redhat.telemetry.enabled": true,
-          "window.menuBarVisibility": "classic",
-          "workbench.colorTheme": "Atom One Dark",
-          "editor.minimap.enabled": false
-        }
+        "dvc.doNotShowSetupAfterInstall": true,
+        "workbench.editorAssociations": {
+          "*.pdf": "latex-workshop-pdf-hook"
+        },
+        "git.autofetch": true,
+        "redhat.telemetry.enabled": true,
+        "window.menuBarVisibility": "classic",
+        "workbench.colorTheme": "Atom One Dark",
+        "editor.minimap.enabled": false
       }
     }
   }
+}
