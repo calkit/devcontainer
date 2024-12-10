@@ -31,6 +31,6 @@
       }
     }
   },
-  "postCreateCommand": "conda init bash && calkit --install-completion",
+  "postCreateCommand": "conda init bash",
   "postStartCommand": "docker pull texlive/texlive:latest-full"
 }
