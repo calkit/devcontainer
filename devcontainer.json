@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/calkit/devcontainer:v0.0.5",
+  "image": "ghcr.io/calkit/devcontainer:latest",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
