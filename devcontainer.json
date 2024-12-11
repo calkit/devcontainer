@@ -12,7 +12,8 @@
         "ms-python.vscode-pylance",
         "streetsidesoftware.code-spell-checker",
         "redhat.vscode-yaml",
-        "akamud.vscode-theme-onedark"
+        "akamud.vscode-theme-onedark",
+        "mechatroner.rainbow-csv"
       ],
       "settings": {
         "latex-workshop.latex.external.build.command": "calkit",
