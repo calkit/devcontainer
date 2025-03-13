@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/devcontainers/python:dev-3.12-bullseye
 
 # Install Miniforge
 ARG MINIFORGE_NAME=Miniforge3
-ARG MINIFORGE_VERSION=24.9.2-0
+ARG MINIFORGE_VERSION=24.11.3-2
 ARG TARGETPLATFORM
 
 ENV CONDA_DIR=/opt/conda
@@ -38,5 +38,8 @@ RUN apt-get update > /dev/null && \
     echo ". ${CONDA_DIR}/etc/profile.d/conda.sh && conda activate base" >> /etc/skel/.bashrc && \
     echo ". ${CONDA_DIR}/etc/profile.d/conda.sh && conda activate base" >> ~/.bashrc
 
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:0.6.6 /uv /uvx /bin/
+
 # Install Calkit
-RUN pip install --no-cache-dir "calkit-python>=0.11.1"
+RUN pip install --no-cache-dir "calkit-python>=0.21.1"
