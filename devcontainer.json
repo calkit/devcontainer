@@ -36,6 +36,9 @@
       }
     }
   },
+  "mounts": [
+    "source=${localEnv:HOME}/.calkit,target=/home/vscode/.calkit,type=bind,consistency=cached"
+  ],
   "postCreateCommand": "conda init bash",
   "postStartCommand": "docker pull texlive/texlive:latest-full"
 }
