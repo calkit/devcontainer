@@ -46,4 +46,4 @@ RUN conda install -y libsqlite=3.48.0 && \
 COPY --from=ghcr.io/astral-sh/uv:0.6.6 /uv /uvx /bin/
 
 # Install Calkit
-RUN pip install --no-cache-dir "calkit-python>=0.21.1"
+RUN pip install --no-cache-dir "calkit-python>=0.24.5"
