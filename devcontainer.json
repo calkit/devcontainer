@@ -14,7 +14,8 @@
         "redhat.vscode-yaml",
         "akamud.vscode-theme-onedark",
         "mechatroner.rainbow-csv",
-        "julialang.language-julia"
+        "julialang.language-julia",
+        "ms-toolsai.jupyter"
       ],
       "settings": {
         "latex-workshop.latex.external.build.command": "calkit",
