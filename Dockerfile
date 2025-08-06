@@ -47,3 +47,10 @@ COPY --from=ghcr.io/astral-sh/uv:0.8.5 /uv /uvx /bin/
 
 # Install Calkit
 RUN pip install --no-cache-dir "calkit-python>=0.26.12"
+
+# Install Julia
+COPY --from=julia:1.11.6-bullseye /usr/local/julia /usr/local/julia
+ENV JULIA_PATH=/usr/local/julia \
+    PATH=$PATH:/usr/local/julia/bin \
+    JULIA_GPG=3673DF529D9049477F76B37566E3C7DC03D6E495 \
+    JULIA_VERSION=1.11.6
