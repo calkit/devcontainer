@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/devcontainers/python:dev-3.12-bullseye
 
 # Install Miniforge
 ARG MINIFORGE_NAME=Miniforge3
-ARG MINIFORGE_VERSION=24.11.3-2
+ARG MINIFORGE_VERSION=25.3.1-0
 ARG TARGETPLATFORM
 
 ENV CONDA_DIR=/opt/conda
