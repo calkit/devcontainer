@@ -24,8 +24,8 @@
         "latex-workshop.latex.external.build.command": "calkit",
         "latex-workshop.latex.external.build.args": [
           "run",
-          "--attr",
-          "target_path=%DOCFILE%"
+          "--input",
+          "%DOCFILE%"
         ],
         "dvc.doNotShowSetupAfterInstall": true,
         "workbench.editorAssociations": {
