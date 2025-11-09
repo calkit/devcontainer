@@ -25,7 +25,7 @@
         "latex-workshop.latex.external.build.args": [
           "run",
           "--input",
-          "%DOCFILE%"
+          "%DOC%.tex"
         ],
         "dvc.doNotShowSetupAfterInstall": true,
         "workbench.editorAssociations": {
