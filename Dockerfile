@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/devcontainers/python:dev-3.13-bullseye
 
 # Install Miniforge
 ARG MINIFORGE_NAME=Miniforge3
-ARG MINIFORGE_VERSION=25.3.1-0
+ARG MINIFORGE_VERSION=25.9.1-0
 ARG TARGETPLATFORM
 
 ENV CONDA_DIR=/opt/conda
@@ -52,4 +52,4 @@ RUN curl -L -o /usr/local/bin/pixi -fsSL --compressed "https://github.com/prefix
     && pixi info
 
 # Install Calkit
-RUN pip install --no-cache-dir "calkit-python>=0.30.10"
+RUN pip install --no-cache-dir "calkit-python>=0.31.0"
