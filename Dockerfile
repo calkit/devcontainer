@@ -52,4 +52,4 @@ RUN curl -L -o /usr/local/bin/pixi -fsSL --compressed "https://github.com/prefix
     && pixi info
 
 # Install Calkit
-RUN pip install --no-cache-dir "calkit-python>=0.31.0"
+RUN pip install --no-cache-dir "calkit-python>=0.31.1"
