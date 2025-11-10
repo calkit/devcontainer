@@ -51,5 +51,10 @@ RUN curl -L -o /usr/local/bin/pixi -fsSL --compressed "https://github.com/prefix
     && chmod +x /usr/local/bin/pixi \
     && pixi info
 
+# Add init scripts
+ENV INIT_SCRIPTS_DIR=/usr/local/share/devcontainer-init
+RUN mkdir -p ${INIT_SCRIPTS_DIR}
+COPY scripts/pull-texlive.sh ${INIT_SCRIPTS_DIR}
+
 # Install Calkit
-RUN pip install --no-cache-dir "calkit-python>=0.31.1"
+RUN uv pip install --system --no-cache-dir "calkit-python>=0.31.1"

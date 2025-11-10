@@ -48,5 +48,5 @@
     "source=${localEnv:HOME}/.calkit,target=/home/vscode/.calkit,type=bind,consistency=cached"
   ],
   "postCreateCommand": "conda init bash",
-  "postStartCommand": "calkit config github-codespace && bash -lc 'nohup bash -c \"until docker version >/dev/null 2>&1; do sleep 1; done; mkdir -p /home/vscode/.cache; docker pull -q texlive/texlive:latest-full\" >/home/vscode/.cache/texlive-pull.log 2>&1 &'"
+  "postStartCommand": "mkdir -p $HOME/.cache; calkit config github-codespace > $HOME/.cache/calkit-config.log 2>&1 || true; calkit pull > $HOME/.cache/calkit-pull.log 2>&1 || true; bash $INIT_SCRIPTS_DIR/pull-texlive.sh"
 }
