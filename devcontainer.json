@@ -27,6 +27,7 @@
           "--input",
           "%DOC%.tex"
         ],
+        "latex-workshop.latex.autoBuild.run": "never",
         "dvc.doNotShowSetupAfterInstall": true,
         "workbench.editorAssociations": {
           "*.pdf": "latex-workshop-pdf-hook"
