@@ -57,4 +57,4 @@ RUN mkdir -p ${INIT_SCRIPTS_DIR}
 COPY scripts/pull-texlive.sh ${INIT_SCRIPTS_DIR}
 
 # Install Calkit
-RUN uv pip install --system --no-cache-dir "calkit-python>=0.31.3"
+RUN uv pip install --system --no-cache-dir "calkit-python>=0.31.4"
