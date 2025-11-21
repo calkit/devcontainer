@@ -44,6 +44,6 @@
   "mounts": [
     "source=${localEnv:HOME}/.calkit,target=/home/vscode/.calkit,type=bind,consistency=cached"
   ],
-  "postCreateCommand": "conda init bash",
-  "postStartCommand": ". /opt/conda/bin/activate; mkdir -p $HOME/.cache; calkit config github-codespace > $HOME/.cache/calkit-config.log 2>&1 || true; calkit pull > $HOME/.cache/calkit-pull.log 2>&1 || true; bash $INIT_SCRIPTS_DIR/check-envs.sh"
+  "updateContentCommand": "while ! docker info > /dev/null 2>&1; do sleep 1; done && conda init bash && . /opt/conda/bin/activate && calkit check envs",
+  "postStartCommand": ". /opt/conda/bin/activate; mkdir -p $HOME/.cache; calkit config github-codespace > $HOME/.cache/calkit-config.log 2>&1 || true; calkit pull > $HOME/.cache/calkit-pull.log 2>&1 || true"
 }
