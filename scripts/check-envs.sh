@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 CMD="calkit check envs"
-LOGFILE="$HOME/.cache/check-envs.log"
+CACHE_DIR="$HOME/.cache"
+mkdir -p "$CACHE_DIR"
+LOGFILE="$CACHE_DIR/check-envs.log"
 
 echo "Starting env check at $(date)" > "$LOGFILE"
 
