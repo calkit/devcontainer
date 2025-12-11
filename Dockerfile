@@ -43,7 +43,7 @@ RUN conda install -y libsqlite=3.48.0 && \
     conda clean --force-pkgs-dirs --all --yes
 
 # Install uv
-COPY --from=ghcr.io/astral-sh/uv:0.8.5 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.9.15 /uv /uvx /bin/
 
 # Install Pixi
 ARG PIXI_VERSION=v0.59.0
