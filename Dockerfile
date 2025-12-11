@@ -54,7 +54,9 @@ RUN curl -L -o /usr/local/bin/pixi -fsSL --compressed "https://github.com/prefix
 # Add init scripts
 ENV INIT_SCRIPTS_DIR=/usr/local/share/devcontainer-init
 RUN mkdir -p ${INIT_SCRIPTS_DIR}
-COPY scripts/check-envs.sh ${INIT_SCRIPTS_DIR}
+COPY scripts/post-create.sh ${INIT_SCRIPTS_DIR}
+COPY scripts/post-start.sh ${INIT_SCRIPTS_DIR}
+COPY scripts/update-content.sh ${INIT_SCRIPTS_DIR}
 
 # Install Calkit
 RUN uv pip install --system --no-cache-dir "calkit-python>=0.32.7"

@@ -41,9 +41,8 @@
       }
     }
   },
-  "mounts": [
-    "source=${localEnv:HOME}/.calkit,target=/home/vscode/.calkit,type=bind,consistency=cached"
-  ],
-  "updateContentCommand": "while ! docker info > /dev/null 2>&1; do sleep 1; done && conda init bash && . /opt/conda/bin/activate && calkit check envs",
-  "postStartCommand": ". /opt/conda/bin/activate; mkdir -p $HOME/.cache; calkit config github-codespace > $HOME/.cache/calkit-config.log 2>&1 || true; calkit pull > $HOME/.cache/calkit-pull.log 2>&1 || true"
+  "initializeCommand": "mkdir -p .calkit/temp && echo '*' > .calkit/temp/.gitignore && bash -c 'echo \"CALKIT_TOKEN=$(calkit config get token)\" > .calkit/temp/.env' && bash -c 'echo \"CALKIT_DVC_TOKEN=$(calkit config get dvc_token)\" >> .calkit/temp/.env'",
+  "postCreateCommand": "bash $INIT_SCRIPTS_DIR/post-create.sh",
+  "updateContentCommand": "bash $INIT_SCRIPTS_DIR/update-content.sh",
+  "postStartCommand": "bash $INIT_SCRIPTS_DIR/post-start.sh"
 }
