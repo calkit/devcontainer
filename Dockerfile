@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/devcontainers/python:dev-3.13-bullseye
 
 # Install Miniforge
 ARG MINIFORGE_NAME=Miniforge3
-ARG MINIFORGE_VERSION=25.9.1-0
+ARG MINIFORGE_VERSION=26.3.2-0
 ARG TARGETPLATFORM
 
 ENV CONDA_DIR=/opt/conda
@@ -20,7 +20,8 @@ ENV PATH=${CONDA_DIR}/bin:${PATH}
 #    for their interactive shells.
 # 6. Activate base by default when running as root as well
 #    The root user is already created, so won't pick up changes to /etc/skel
-RUN apt-get update > /dev/null && \
+RUN rm -f /etc/apt/sources.list.d/yarn.list && \
+    apt-get update > /dev/null && \
     apt-get install --no-install-recommends --yes \
         wget bzip2 ca-certificates \
         git \
@@ -43,10 +44,10 @@ RUN conda install -y libsqlite=3.48.0 && \
     conda clean --force-pkgs-dirs --all --yes
 
 # Install uv
-COPY --from=ghcr.io/astral-sh/uv:0.9.15 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.11.7 /uv /uvx /bin/
 
 # Install Pixi
-ARG PIXI_VERSION=v0.59.0
+ARG PIXI_VERSION=v0.67.0
 RUN curl -L -o /usr/local/bin/pixi -fsSL --compressed "https://github.com/prefix-dev/pixi/releases/download/${PIXI_VERSION}/pixi-$(uname -m)-unknown-linux-musl" \
     && chmod +x /usr/local/bin/pixi \
     && pixi info
@@ -54,7 +55,9 @@ RUN curl -L -o /usr/local/bin/pixi -fsSL --compressed "https://github.com/prefix
 # Add init scripts
 ENV INIT_SCRIPTS_DIR=/usr/local/share/devcontainer-init
 RUN mkdir -p ${INIT_SCRIPTS_DIR}
-COPY scripts/check-envs.sh ${INIT_SCRIPTS_DIR}
+COPY scripts/post-create.sh ${INIT_SCRIPTS_DIR}
+COPY scripts/post-start.sh ${INIT_SCRIPTS_DIR}
+COPY scripts/update-content.sh ${INIT_SCRIPTS_DIR}
 
 # Install Calkit
-RUN uv pip install --system --no-cache-dir "calkit-python>=0.32.7"
+RUN uv pip install --system --no-cache-dir "calkit-python>=0.39.2"
