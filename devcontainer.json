@@ -10,7 +10,7 @@
     "vscode": {
       "extensions": [
         "james-yu.latex-workshop",
-        "iterative.dvc",
+        "lakefs.lakefs-dvc",
         "esbenp.pretter-vscode",
         "ms-python.vscode-pylance",
         "streetsidesoftware.code-spell-checker",
