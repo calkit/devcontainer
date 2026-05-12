@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/devcontainers/python:dev-3.13-bullseye
 
 # Install Miniforge
 ARG MINIFORGE_NAME=Miniforge3
-ARG MINIFORGE_VERSION=25.9.1-0
+ARG MINIFORGE_VERSION=26.3.2-0
 ARG TARGETPLATFORM
 
 ENV CONDA_DIR=/opt/conda
@@ -20,7 +20,8 @@ ENV PATH=${CONDA_DIR}/bin:${PATH}
 #    for their interactive shells.
 # 6. Activate base by default when running as root as well
 #    The root user is already created, so won't pick up changes to /etc/skel
-RUN apt-get update > /dev/null && \
+RUN rm -f /etc/apt/sources.list.d/yarn.list && \
+    apt-get update > /dev/null && \
     apt-get install --no-install-recommends --yes \
         wget bzip2 ca-certificates \
         git \
