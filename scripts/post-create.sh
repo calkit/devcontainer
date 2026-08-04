@@ -6,14 +6,30 @@ set -euo pipefail
 
 mkdir -p "$(dirname "$TEMP_ENV")"
 
-if [ -f "$TEMP_ENV" ]; then
-	# Reuse any values staged by initializeCommand or a previous container run.
-	# If the file is empty or invalid, fall back to the container's calkit config.
-	if grep -q '^CALKIT_TOKEN=' "$TEMP_ENV" 2>/dev/null || grep -q '^CALKIT_DVC_TOKEN=' "$TEMP_ENV" 2>/dev/null; then
-		# shellcheck disable=SC1090
-		source "$TEMP_ENV"
-	fi
-fi
+# Read a single KEY=value pair out of the staged env file. The file lives in
+# the workspace, so it's treated as untrusted input and parsed rather than
+# sourced, which would execute whatever happens to be in it.
+read_staged_var() {
+	local key="$1" line
+	[ -f "$TEMP_ENV" ] || return 0
+	line=$(grep -m 1 "^${key}=" "$TEMP_ENV" 2>/dev/null) || return 0
+	line="${line#"${key}="}"
+	line="${line%$'\r'}"
+	# Strip one layer of surrounding quotes, if present
+	case "$line" in
+		\"*\") line="${line#\"}" && line="${line%\"}" ;;
+		\'*\') line="${line#\'}" && line="${line%\'}" ;;
+	esac
+	printf '%s' "$line"
+}
+
+# Prefer values staged by initializeCommand or a previous container run, then
+# anything already in the environment, then the container's own calkit config
+STAGED_TOKEN=$(read_staged_var CALKIT_TOKEN)
+STAGED_DVC_TOKEN=$(read_staged_var CALKIT_DVC_TOKEN)
+
+CALKIT_TOKEN=${STAGED_TOKEN:-${CALKIT_TOKEN:-}}
+CALKIT_DVC_TOKEN=${STAGED_DVC_TOKEN:-${CALKIT_DVC_TOKEN:-}}
 
 if [ -z "${CALKIT_TOKEN:-}" ]; then
 	CALKIT_TOKEN=$(calkit config get token 2>/dev/null || true)
