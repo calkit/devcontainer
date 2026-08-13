@@ -1,5 +1,8 @@
 # Calkit devcontainer
 
+Note: This has been moved to
+[calkit/resources/devcontainer](https://github.com/calkit/calkit/tree/main/calkit/resources/devcontainer).
+
 A dev container spec for working on Calkit projects.
 To use this in your project, or to update to the latest version, run:
 
